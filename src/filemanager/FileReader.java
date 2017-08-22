@@ -15,14 +15,14 @@ import java.io.IOException;
  */
 public class FileReader {
     
-    //============================Variabile=================================================================
+    //<editor-fold defaultstate="collapsed" desc="Variabiles">
     private FileInputStream in = null;
     private FileOutputStream out = null;
     private char mode;
     private char algo;
     private String File_Path = null;
     private final int n = 1;
-    
+    //</editor-fold>
     //============================Constructori==============================================================
     /**
      * 
