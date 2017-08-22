@@ -11,7 +11,8 @@ import java.io.File;
  * @author octavian.bodnariu
  */
 public class DiskSpace {
-
+    
+    //<editor-fold defaultstate="collapsed" desc="Public Functions">
     public long ramInUse()
     {
         return (Runtime.getRuntime().totalMemory() /1024 /1024);
@@ -56,4 +57,5 @@ public class DiskSpace {
     {
         System.out.println(" === Ram === \nRAM in use : "  + Runtime.getRuntime().totalMemory() /1024 /1024 + " mb");
     }
+    //</editor-fold>
 }

@@ -18,14 +18,19 @@ import java.time.format.DateTimeFormatter;
  */
 public class LogGenerator {
     
+    //<editor-fold defaultstate="collapsed" desc="Variables">
     private static final String LOG_FILE_NAME = "/log_";
     private DiskSpace diskSpace;
+    //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="Constructors">
     public LogGenerator()
     {
         diskSpace = new DiskSpace();
     }
+    //</editor-fold>
     
+    //<editor-fold defaultstate="collapsed" desc="Public Functions">
     /**
      * 
      * @param c (i - INFO, w - WARNING, e - ERROR f - FINAL)
@@ -95,4 +100,5 @@ public class LogGenerator {
             }
         }
     }
+    //</editor-fold>
 }

@@ -13,7 +13,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 
-
+//<editor-fold defaultstate="collapsed" desc="Hierarchy">
 /*
 ======================================Ierarhia Fisierelor================================================
 -----Encrypter
@@ -31,8 +31,8 @@ import java.io.FileWriter;
             |
             |exportSQL.sql
             |exportTable.csv
-
 */
+//</editor-fold>
 
 /**
  *
@@ -40,17 +40,18 @@ import java.io.FileWriter;
  */
 public class ApplicationSetup {
     
-//==============================CONSTANTE============================================================================================================================================
+////<editor-fold defaultstate="collapsed" desc="Constants">
     private static final String LOGS = "/logs";
     private static final String REPORTS = "/logs/reports";
     private static final String DB_EXPORT = "/exports";
     private static final String CONFIG_FILES = "/config";
+  //</editor-fold>
     
-//==============================VARIABILE============================================================================================================================================
+//<editor-fold defaultstate="collapsed" desc="Variables">
     private final String installation_path;
+//</editor-fold>
     
-    
-//==============================CONSTRUCTOR==========================================================================================================================================
+//<editor-fold defaultstate="collapsed" desc="Constructors">    
     public ApplicationSetup(String installation_path)
     {
         this.installation_path = installation_path;
@@ -63,7 +64,9 @@ public class ApplicationSetup {
     }
     */
     
-//==============================FUNCTII PUBLICE======================================================================================================================================
+//</editor-fold>    
+   
+//<editor-fold defaultstate="collapsed" desc="Public Functions">
     /**
      * Procedura creeaza fisierele pentru a stoca informatii
      */
@@ -94,8 +97,9 @@ public class ApplicationSetup {
             }
         }
     }
+    //</editor-fold>
 
-//==============================FUNCTII PRIVATE======================================================================================================================================
+//<editor-fold defaultstate="collapsed" desc="Private Functions">
     /**
      * Functia verifica daca exista ierarhia de fisiere/foldere
      * @param path Calea 
@@ -143,4 +147,5 @@ public class ApplicationSetup {
             }
         }
     }
+    //</editor-fold>
 }

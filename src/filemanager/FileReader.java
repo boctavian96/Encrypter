@@ -23,7 +23,8 @@ public class FileReader {
     private String File_Path = null;
     private final int n = 1;
     //</editor-fold>
-    //============================Constructori==============================================================
+    
+    //<editor-fold defaultstate="collapsed" desc="Constructors">
     /**
      * 
      * @param File_Path Calea catre fisierul/folderul care trebuie criptat
@@ -37,7 +38,9 @@ public class FileReader {
         this.algo = algo;
     }
     
-    //==============================Public Functions========================================================
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Public Functions">
     public void encrypt()
     {
         readFile();
@@ -47,7 +50,10 @@ public class FileReader {
     {
         
     }
-    //==============================Private Functions=======================================================
+    
+    //</editor-fold>
+    
+    //<editor-fold defaultstate="collapsed" desc="Private Functions">
     private void readFile()
     {
         int c;
@@ -86,4 +92,5 @@ public class FileReader {
     {
         
     }
+    //</editor-fold>
 }

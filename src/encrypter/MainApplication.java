@@ -14,14 +14,18 @@ import javax.swing.JFileChooser;
  */
 public class MainApplication extends javax.swing.JFrame {
 
-//===================================VARIABILE===========================================================================================================================================================================
+//<editor-fold defaultstate="collapsed" desc="User Variables">
    private JFileChooser filechoser;
-    /**
+//</editor-fold>
+
+//<editor-fold defaultstate="collapsed" desc="Constructors">   
+   /**
      * Creates new form MainApplication
      */
     public MainApplication() {
         initComponents();
     }
+//</editor-fold>
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -386,9 +390,8 @@ public class MainApplication extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    
-//==================================FUNCTII PRIVATE=========================================================================================================================================
+ 
+////<editor-fold defaultstate="collapsed" desc="Private Functions">
     private void encrypt_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encrypt_buttonActionPerformed
         // TODO add your handling code here:
         if(addExtension_CheckBox.isSelected())
@@ -472,7 +475,9 @@ public class MainApplication extends javax.swing.JFrame {
         //System.out.println("Works");
         
     }//GEN-LAST:event_selectFile_buttonActionPerformed
+//</editor-fold>
 
+//<editor-fold defaultstate="collapsed" desc="Main">
     /**
      * @param args the command line arguments
      */
@@ -507,9 +512,9 @@ public class MainApplication extends javax.swing.JFrame {
             }
         });
     }
+//</editor-fold>
 
-//====================================VARIABILE PRIVATE(GUI)=====================================================================================================================================================================    
-    
+////<editor-fold defaultstate="collapsed" desc="Variables">
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> AlgorithmsList_ComboBox;
     private javax.swing.JCheckBox addExtension_CheckBox;
@@ -568,4 +573,5 @@ public class MainApplication extends javax.swing.JFrame {
     private javax.swing.JCheckBox signDigitaly_CheckBox;
     private javax.swing.JCheckBox storeKey_CheckBox;
     // End of variables declaration//GEN-END:variables
+//</editor-fold>
 }
