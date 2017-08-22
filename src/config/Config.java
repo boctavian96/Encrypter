@@ -1,0 +1,15 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package config;
+
+/**
+ *
+ * @author octavian.bodnariu
+ */
+public class Config {
+    public static final String WINDOWS_PATH = "C:\\Encry\\";
+    public static final String LINUX_PATH = "/home/octavian/Program Files/Encrypter";
+}
