@@ -38,7 +38,11 @@ public class KeyMaster {
         publicKeyFile = new File(public_key_path);
     }
     //</editor-fold>
-    
+    /**
+     * 
+     * @param k1 
+     * @param k2 
+     */
     public void storeKeys(PublicKey k1, PrivateKey k2)
     {
         if(privateKeyFile.getParentFile() != null)
@@ -96,5 +100,19 @@ public class KeyMaster {
             LogGenerator l = new LogGenerator();
             l.writeLog('e', e.getMessage());
         }
+    }
+    
+    /**
+     * 
+     * @param k1 Public Key path
+     * @param k2 Private Ket path
+     * @return True if exists
+     */
+    public boolean KeyExits(String k1, String k2)
+    {
+        File priv_k = new File(k2);
+        File publ_k = new File(k1);
+        
+        return priv_k.exists() ? publ_k.exists() ? true : false : false;
     }
 }

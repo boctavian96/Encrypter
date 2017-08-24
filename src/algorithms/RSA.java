@@ -18,6 +18,7 @@ import javax.crypto.Cipher;
 
 import config.Config;
 import filemanager.KeyMaster;
+import java.io.File;
 
 //</editor-fold>
 
