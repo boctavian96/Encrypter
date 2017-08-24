@@ -19,6 +19,11 @@ import javax.crypto.Cipher;
 import config.Config;
 import filemanager.KeyMaster;
 import java.io.File;
+import java.security.InvalidKeyException;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
+
 import statistics.LogGenerator;
 
 //</editor-fold>
@@ -57,9 +62,10 @@ public class RSA extends AlgorithmBase {
             km.storeKeys(key.getPublic(), key.getPrivate());
  
         }
-        catch(Exception e)
+        catch(NoSuchAlgorithmException e)
         {
-            e.printStackTrace();
+            LogGenerator l = new LogGenerator();
+            l.writeLog('e', e.getMessage());
         }
     }
 
@@ -94,6 +100,7 @@ public class RSA extends AlgorithmBase {
      * @param key Private key
      * @return Decrypted text
      */
+    @Override
     public String decrypt(byte[] text, PrivateKey key)
     {
         String result;
@@ -107,7 +114,7 @@ public class RSA extends AlgorithmBase {
             c.init(Cipher.DECRYPT_MODE, key);
             dec_text = c.doFinal(text);
         }
-        catch(Exception e)
+        catch(InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e)
         {
             LogGenerator l = new LogGenerator();
             l.writeLog('e', e.getMessage());
