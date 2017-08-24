@@ -19,6 +19,7 @@ import javax.crypto.Cipher;
 import config.Config;
 import filemanager.KeyMaster;
 import java.io.File;
+import statistics.LogGenerator;
 
 //</editor-fold>
 
@@ -26,7 +27,7 @@ import java.io.File;
  * Clasa responsabila pentru Algoritmul RSA
  * @author octavian.bodnariu
  */
-public class RSA {
+public class RSA extends AlgorithmBase {
     
     private static KeyMaster km;
     
@@ -62,4 +63,59 @@ public class RSA {
             e.printStackTrace();
         }
     }
+
+    /**
+     * Encrypt a text using RSA
+     * @param text Text to be encrypted
+     * @param key Public key
+     * @return Encrypted text
+     */
+    @Override
+    public byte[] encrypt(String text, PublicKey key)
+    {
+        byte[] enc_text = null;
+        try
+        {
+            Cipher c = Cipher.getInstance(Config.RSA);
+            c.init(Cipher.ENCRYPT_MODE, key);
+            enc_text = c.doFinal(text.getBytes());
+        }
+        catch(Exception e)
+        {
+            LogGenerator l = new LogGenerator();
+            l.writeLog('e', e.getMessage());
+        }
+        
+        return enc_text;
+    }
+    
+    /**
+     * Function to decrypt RSA encrypted text
+     * @param text Text to be decrypted
+     * @param key Private key
+     * @return Decrypted text
+     */
+    public String decrypt(byte[] text, PrivateKey key)
+    {
+        String result;
+        byte[] dec_text = null;
+        
+        try
+        {
+            Cipher c = Cipher.getInstance(Config.RSA);
+            
+            //Decrypt
+            c.init(Cipher.DECRYPT_MODE, key);
+            dec_text = c.doFinal(text);
+        }
+        catch(Exception e)
+        {
+            LogGenerator l = new LogGenerator();
+            l.writeLog('e', e.getMessage());
+        }
+        
+        result = new String(dec_text);
+        return result;
+    }
+
 }
