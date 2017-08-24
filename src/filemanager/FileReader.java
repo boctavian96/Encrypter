@@ -41,16 +41,14 @@ public class FileReader {
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Public Functions">
+    /**
+     * @TODO Change procedure name to "read"
+     */
     public void encrypt()
     {
         readFile();
     }
-    
-    public void decrypt()
-    {
-        
-    }
-    
+
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Private Functions">
@@ -83,14 +81,5 @@ public class FileReader {
         
     }
     
-    private void encryptFile()
-    {
-        
-    }
-    
-    private void decryptFile()
-    {
-        
-    }
     //</editor-fold>
 }

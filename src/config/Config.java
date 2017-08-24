@@ -10,6 +10,13 @@ package config;
  * @author octavian.bodnariu
  */
 public class Config {
+    
+    //<editor-fold desc="System paths">
     public static final String WINDOWS_PATH = "C:\\Encry\\";
     public static final String LINUX_PATH = "/home/octavian/Program Files/Encrypter";
+    //</editor-fold>
+    
+    //<editor-fold desc="Algorithms">
+    public static final String RSA = "RSA";
+    //</editor-fold>
 }
