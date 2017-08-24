@@ -72,7 +72,7 @@ public class LogGenerator {
                     break;
                     
                 case 'f':
-                    bw.write("OS : " + diskSpace.getOs() + " RAM : " + diskSpace.ramInUse() + "\n");//OS
+                    bw.write("OS : " + diskSpace.whatOS() + " RAM : " + diskSpace.ramInUse() + "\n");//OS
                     //bw.write(diskSpace.ramInUse().toString + " MB");//Ram
                     break;
                     

@@ -18,14 +18,14 @@ public class DiskSpace {
         return (Runtime.getRuntime().totalMemory() /1024 /1024);
     }
     
-    public String getOs()
+    public String whatOS()
     {
         return System.getProperty("os.name");
     }
     
     public void diskSpaceStatistics()
     {
-        File file = new File("c:");
+        File file = new File("c:"); //Only for Windows
     	long totalSpace = file.getTotalSpace(); //total disk space in bytes.
     	long usableSpace = file.getUsableSpace(); ///unallocated / free disk space in bytes.
     	long freeSpace = file.getFreeSpace(); //unallocated / free disk space in bytes.
