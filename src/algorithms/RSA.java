@@ -51,12 +51,11 @@ public class RSA extends AlgorithmBase {
             final KeyPairGenerator keyGen = KeyPairGenerator.getInstance(Config.RSA);
             keyGen.initialize(1024);
             
+            //Create files and store them in prvK and pubK
             final KeyPair key = keyGen.genKeyPair();
             km = new KeyMaster(PRIVATE_KEY_FILE, PUBLIC_KEY_FILE);
             km.storeKeys(key.getPublic(), key.getPrivate());
-            
-            //Create files and store them in prvK and pubK
-            
+ 
         }
         catch(Exception e)
         {
