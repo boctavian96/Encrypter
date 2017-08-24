@@ -108,7 +108,7 @@ public class KeyMaster {
      *      <li>Tested on RSA
      * </ul>
      * @param k1 Public Key path
-     * @param k2 Private Ket path
+     * @param k2 Private Key path
      * @return True if exists
      */
     public boolean KeyExits(String k1, String k2)
