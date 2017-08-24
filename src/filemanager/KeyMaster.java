@@ -18,7 +18,8 @@ import statistics.LogGenerator;
 
 
 /**
- *
+ * Key manager
+ * <h3>NOT IMPLEMENTED YET</h3>
  * @author octavian.bodnariu
  */
 public class KeyMaster {
