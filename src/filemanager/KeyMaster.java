@@ -39,9 +39,9 @@ public class KeyMaster {
     }
     //</editor-fold>
     /**
-     * 
-     * @param k1 
-     * @param k2 
+     * This procedure will store keys in files 
+     * @param k1 PublicKey
+     * @param k2 PrivateKey
      */
     public void storeKeys(PublicKey k1, PrivateKey k2)
     {
@@ -103,7 +103,10 @@ public class KeyMaster {
     }
     
     /**
-     * 
+     * Checks if two keys exist
+     * <ul>
+     *      <li>Tested on RSA
+     * </ul>
      * @param k1 Public Key path
      * @param k2 Private Ket path
      * @return True if exists
