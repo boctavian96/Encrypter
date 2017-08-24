@@ -8,6 +8,7 @@ package filemanager;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import statistics.LogGenerator;
 
 /**
  *
@@ -76,7 +77,8 @@ public class FileReader {
         catch(IOException e)
         {
             System.out.println("Fehler !");
-            e.printStackTrace();
+            LogGenerator l = new LogGenerator();
+            l.writeLog('e', e.getMessage());
         }
         
     }
