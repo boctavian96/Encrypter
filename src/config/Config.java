@@ -18,5 +18,6 @@ public class Config {
     
     //<editor-fold desc="Algorithms">
     public static final String RSA = "RSA";
+    public static final String RSA = "Caesar";
     //</editor-fold>
 }
