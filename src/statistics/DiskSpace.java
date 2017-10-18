@@ -14,7 +14,7 @@ public class DiskSpace {
     
     //<editor-fold defaultstate="collapsed" desc="Public Functions">
     /**
-     * 
+     * Ram in use
      * @return 
      */
     public long ramInUse()
@@ -32,7 +32,7 @@ public class DiskSpace {
     }
     
     /**
-     * 
+     * Only for WINDOWS
      */
     public void diskSpaceStatistics()
     {
@@ -68,7 +68,7 @@ public class DiskSpace {
     }
     
     /**
-     * 
+     * Ram in use
      */
     public void ramStatistics()
     {
