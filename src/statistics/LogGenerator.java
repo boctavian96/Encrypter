@@ -32,7 +32,7 @@ public class LogGenerator {
     
     //<editor-fold defaultstate="collapsed" desc="Public Functions">
     /**
-     * 
+     * Writes logs.txt with information
      * @param c (i - INFO, w - WARNING, e - ERROR f - FINAL)
      * @param message Event message
      */
