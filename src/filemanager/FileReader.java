@@ -22,6 +22,7 @@ public class FileReader {
     private char mode;
     private char algo;
     private String File_Path = null;
+    private String Output_File = null;
     private final int n = 1;
     //</editor-fold>
     
@@ -39,13 +40,21 @@ public class FileReader {
         this.algo = algo;
     }
     
+    public FileReader(String File_Path, String Output_File, char mode, char algo)
+    {
+        this.File_Path = File_Path;
+        this.Output_File = Output_File;
+        this.mode = mode;
+        this.algo = algo;
+    }
+    
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Public Functions">
     /**
-     * @TODO Change procedure name to "read"
+     * Reads input from a file
      */
-    public void encrypt()
+    public void read()
     {
         readFile();
     }

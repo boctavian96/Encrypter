@@ -117,6 +117,6 @@ public class KeyMaster {
         File priv_k = new File(k2);
         File publ_k = new File(k1);
         
-        return priv_k.exists() ? publ_k.exists() ? true : false : false;
+        return priv_k.exists() ? publ_k.exists() : false;
     }
 }

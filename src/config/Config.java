@@ -19,5 +19,9 @@ public class Config {
     //<editor-fold desc="Algorithms">
     public static final String RSA = "RSA";
     public static final String Caesar = "Caesar";
+    public static final String ElGamal = "ElGamal";
+    public static final String Goldwasser = "Goldwasser";
+    public static final String Mars = "Mars";
+    public static final String Rabin = "Rabin";
     //</editor-fold>
 }
