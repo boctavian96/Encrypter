@@ -9,19 +9,19 @@ package config;
  *
  * @author octavian.bodnariu
  */
-public class Config {
+public interface Config {
     
     //<editor-fold desc="System paths">
-    public static final String WINDOWS_PATH = "C:\\Encry\\";
-    public static final String LINUX_PATH = "/home/octavian/Program Files/Encrypter";
+    String WINDOWS_PATH = "C:\\Encry\\";
+    String LINUX_PATH = "/home/octavian/Program Files/Encrypter";
     //</editor-fold>
     
     //<editor-fold desc="Algorithms">
-    public static final String RSA = "RSA";
-    public static final String Caesar = "Caesar";
-    public static final String ElGamal = "ElGamal";
-    public static final String Goldwasser = "Goldwasser";
-    public static final String Mars = "Mars";
-    public static final String Rabin = "Rabin";
+    String RSA = "RSA";
+    String CAESAR = "Caesar";
+    String ELGAMAL = "ElGamal";
+    String GOLDWASSER = "Goldwasser";
+    String MARS = "Mars";
+    String RABIN = "Rabin";
     //</editor-fold>
 }
