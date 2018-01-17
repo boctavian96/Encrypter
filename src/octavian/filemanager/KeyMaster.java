@@ -57,7 +57,7 @@ public class KeyMaster {
         }
         catch(IOException e)
         {
-            LogGenerator l = new LogGenerator();
+            LogGenerator l = LogGenerator.getInstance();
             l.writeLog('e', e.getMessage());
             
         }
@@ -73,7 +73,7 @@ public class KeyMaster {
         }
         catch(IOException e)
         {
-            LogGenerator l = new LogGenerator();
+            LogGenerator l = LogGenerator.getInstance();
             l.writeLog('e', e.getMessage());
         }
         
@@ -86,7 +86,7 @@ public class KeyMaster {
         }
         catch(IOException e)
         {
-            LogGenerator l = new LogGenerator();
+            LogGenerator l = LogGenerator.getInstance();
             l.writeLog('e', e.getMessage());
         }
         
@@ -98,7 +98,7 @@ public class KeyMaster {
         }
         catch(IOException e)
         {
-            LogGenerator l = new LogGenerator();
+            LogGenerator l = LogGenerator.getInstance();
             l.writeLog('e', e.getMessage());
         }
     }

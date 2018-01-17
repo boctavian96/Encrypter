@@ -64,7 +64,7 @@ public class RSA extends AlgorithmBase {
         }
         catch(NoSuchAlgorithmException e)
         {
-            LogGenerator l = new LogGenerator();
+            LogGenerator l = LogGenerator.getInstance();
             l.writeLog('e', e.getMessage());
         }
     }
@@ -87,7 +87,7 @@ public class RSA extends AlgorithmBase {
         }
         catch(Exception e)
         {
-            LogGenerator l = new LogGenerator();
+            LogGenerator l = LogGenerator.getInstance();
             l.writeLog('e', e.getMessage());
         }
         
@@ -116,7 +116,7 @@ public class RSA extends AlgorithmBase {
         }
         catch(InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e)
         {
-            LogGenerator l = new LogGenerator();
+            LogGenerator l = LogGenerator.getInstance();
             l.writeLog('e', e.getMessage());
         }
         

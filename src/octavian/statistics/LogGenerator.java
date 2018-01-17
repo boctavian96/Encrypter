@@ -20,17 +20,33 @@ public class LogGenerator {
     
     //<editor-fold defaultstate="collapsed" desc="Variables">
     private static final String LOG_FILE_NAME = "/log_";
-    private DiskSpace diskSpace;
+    private final DiskSpace diskSpace;
+    private static LogGenerator instance = null;
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Constructors">
-    public LogGenerator()
+    private LogGenerator()
     {
         diskSpace = new DiskSpace();
     }
     //</editor-fold>
     
     //<editor-fold defaultstate="collapsed" desc="Public Functions">
+    
+    /**
+     * Singleton for LogGenerator
+     * @return Instace of LogGenerator
+     */
+    public static LogGenerator getInstance(){
+        if(instance == null){
+            instance = new LogGenerator();
+            return instance;
+        }else{
+            return instance;
+        }
+    }
+    
+    
     /**
      * Writes logs.txt with information
      * @param c (i - INFO, w - WARNING, e - ERROR f - FINAL)

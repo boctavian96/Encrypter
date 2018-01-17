@@ -86,7 +86,7 @@ public class FileReader {
         catch(IOException e)
         {
             System.out.println("Fehler !");
-            LogGenerator l = new LogGenerator();
+            LogGenerator l = LogGenerator.getInstance();
             l.writeLog('e', e.getMessage());
         }
         
