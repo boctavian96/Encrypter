@@ -6,7 +6,7 @@
 package octavian.database;
 
 /**
- *
+ * Class used to manage connections to mongoDB
  * @author octavian
  */
 public class DatabaseManager {

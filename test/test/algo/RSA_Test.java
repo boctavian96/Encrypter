@@ -5,7 +5,9 @@
  */
 package test.algo;
 
+import java.security.PublicKey;
 import octavian.algorithms.RSA;
+import sun.security.rsa.RSAPublicKeyImpl;
 /**
  *
  * @author octavian
@@ -13,11 +15,22 @@ import octavian.algorithms.RSA;
 public class RSA_Test {
     
     
-    public static void main(String[] args){
-        RSA rsa = new RSA();
-        rsa.generateKey();
     
-        System.out.println(rsa.encrypt("Ana are mere si pere", rsa.km.));
+    public static void main(String[] args){
+        PublicKey pk = null;
+        byte[] key = {1, 2, 3, 4, 5, 6, 7};
+        
+        try{
+            pk = new RSAPublicKeyImpl(key);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
+        
+        RSA rsa = new RSA();
+        
+        RSA.generateKey();
+    
+        System.out.println(rsa.encrypt("Ana are mere si pere", pk));
     }
 
 }

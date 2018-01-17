@@ -39,12 +39,12 @@ public class RSA extends AlgorithmBase {
     /**
      * Path to private key file
      */
-    public static final String PRIVATE_KEY_FILE = "C:/keys/private.key";
+    public static final String PRIVATE_KEY_FILE = "/home/octavian/Program Files/Encrypter/keys/private.key";
     
     /**
      * Path to public key file
      */
-    public static final String PUBLIC_KEY_FILE = "C:/keys/public.key";
+    public static final String PUBLIC_KEY_FILE = "/home/octavian/Program Files/Encrypter/keys/public.key";
     
     public static void generateKey()
     {
