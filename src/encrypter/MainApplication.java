@@ -506,10 +506,8 @@ public class MainApplication extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new MainApplication().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new MainApplication().setVisible(true);
         });
     }
 //</editor-fold>
