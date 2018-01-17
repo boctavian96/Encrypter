@@ -7,6 +7,7 @@ package test.algo;
 
 import java.security.PublicKey;
 import octavian.algorithms.RSA;
+import octavian.utils.Utils;
 import sun.security.rsa.RSAPublicKeyImpl;
 /**
  *
@@ -17,20 +18,17 @@ public class RSA_Test {
     
     
     public static void main(String[] args){
-        PublicKey pk = null;
-        byte[] key = {1, 2, 3, 4, 5, 6, 7};
-        
-        try{
-            pk = new RSAPublicKeyImpl(key);
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        
         RSA rsa = new RSA();
+        String message = "Ana are mere si pere";
         
-        RSA.generateKey();
-    
-        System.out.println(rsa.encrypt("Ana are mere si pere", pk));
+        byte[] e = rsa.encrypt(message.getBytes());
+        byte[] d = rsa.decrypt(e);
+        
+        System.out.println("Test string : " + message);
+        System.out.println("Byte string : " + message.getBytes());
+        System.out.println("Encrypted text : " + Utils.bytesToString(e));
+        System.out.println("Decrypted text : " + new String(d));
+        
     }
 
 }

@@ -23,7 +23,7 @@ public class Testing_Class {
         ApplicationSetup as = new ApplicationSetup(Config.LINUX_PATH);
         DiskSpace ds = new DiskSpace();
         MainApplication ma = new MainApplication();
-        LogGenerator lg = new LogGenerator();
+        LogGenerator lg = LogGenerator.getInstance();
         
         //ma.setVisible(true);
         

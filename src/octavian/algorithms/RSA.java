@@ -19,7 +19,9 @@ import javax.crypto.Cipher;
 import octavian.config.Config;
 import octavian.filemanager.KeyMaster;
 import java.io.File;
+import java.math.BigInteger;
 import java.security.InvalidKeyException;
+import java.util.Random;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
@@ -30,21 +32,44 @@ import octavian.statistics.LogGenerator;
 
 /**
  * Clasa responsabila pentru Algoritmul RSA
- * @author octavian.bodnariu
+ * @author octavian
  */
 public class RSA extends AlgorithmBase {
     
     public static KeyMaster km;
+    private BigInteger bi1;
+    private BigInteger bi2;
+    private BigInteger bi3;
+    private BigInteger pi;
+    private BigInteger a;
+    private BigInteger b;
+    private Random random;
     
-    /**
-     * Path to private key file
-     */
-    public static final String PRIVATE_KEY_FILE = "/home/octavian/Program Files/Encrypter/keys/private.key";
+    private static final int BIT_LENGTH = 1024;
+    public static final String PRIVATE_KEY_FILE = "/home/octavian/Program Files/Encrypter/keys/private.txt";
+    public static final String PUBLIC_KEY_FILE = "/home/octavian/Program Files/Encrypter/keys/public.txt";
     
-    /**
-     * Path to public key file
-     */
-    public static final String PUBLIC_KEY_FILE = "/home/octavian/Program Files/Encrypter/keys/public.key";
+    
+    public RSA(){
+        random = new Random();
+        bi1 = BigInteger.probablePrime(BIT_LENGTH, random);
+        bi2 = BigInteger.probablePrime(BIT_LENGTH, random);
+        bi3 = bi1.multiply(bi2);
+        
+        pi = bi1.subtract(BigInteger.ONE).multiply(bi2.subtract(BigInteger.ONE));
+        a = BigInteger.probablePrime(BIT_LENGTH / 2, random);
+        
+        while(pi.gcd(a).compareTo(BigInteger.ONE) > 0 && a.compareTo(pi) < 0){
+            a.add(BigInteger.ONE);
+        }
+        b = a.modInverse(pi);
+    }
+    
+    public RSA(BigInteger i, BigInteger j, BigInteger k){
+            this.bi1 = i;
+            this.bi2 = j;
+            this.bi3 = k;
+    }
     
     public static void generateKey()
     {
@@ -69,6 +94,14 @@ public class RSA extends AlgorithmBase {
         }
     }
 
+    public byte[] encrypt(byte[] message){
+        return (new BigInteger(message)).modPow(a, bi3).toByteArray();
+    }
+    
+    public byte[] decrypt(byte[] message){
+        return (new BigInteger(message)).modPow(b, bi3).toByteArray();
+    }
+    
     /**
      * Encrypt a text using RSA
      * @param text Text to be encrypted
@@ -85,7 +118,7 @@ public class RSA extends AlgorithmBase {
             c.init(Cipher.ENCRYPT_MODE, key);
             enc_text = c.doFinal(text.getBytes());
         }
-        catch(Exception e)
+        catch(InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e)
         {
             LogGenerator l = LogGenerator.getInstance();
             l.writeLog('e', e.getMessage());

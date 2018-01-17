@@ -35,7 +35,7 @@ public class LogGenerator {
     
     /**
      * Singleton for LogGenerator
-     * @return Instace of LogGenerator
+     * @return Instance of LogGenerator
      */
     public static LogGenerator getInstance(){
         if(instance == null){
