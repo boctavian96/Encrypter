@@ -3,12 +3,20 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package config.setup;
+package octavian.algorithms;
 
 /**
- *
+ * THIS CLASS IS USED FOR TESTING PURPOSES
  * @author octavian.bodnariu
  */
-public class ReadConfigFile {
+public class Caesar {
     
+    /**
+     * Constructor
+     */
+    public Caesar()
+    {
+        
+    }
+
 }

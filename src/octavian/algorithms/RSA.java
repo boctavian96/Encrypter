@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package algorithms;
+package octavian.algorithms;
 
 //<editor-fold desc="Imports">
-import filemanager.FileReader;
+import octavian.filemanager.FileReader;
 
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -16,15 +16,15 @@ import java.security.PublicKey;
 
 import javax.crypto.Cipher;
 
-import config.Config;
-import filemanager.KeyMaster;
+import octavian.config.Config;
+import octavian.filemanager.KeyMaster;
 import java.io.File;
 import java.security.InvalidKeyException;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import statistics.LogGenerator;
+import octavian.statistics.LogGenerator;
 
 //</editor-fold>
 
@@ -34,7 +34,7 @@ import statistics.LogGenerator;
  */
 public class RSA extends AlgorithmBase {
     
-    private static KeyMaster km;
+    public static KeyMaster km;
     
     /**
      * Path to private key file

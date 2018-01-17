@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package statistics;
+package octavian.statistics;
 
 import java.io.File;
 /**

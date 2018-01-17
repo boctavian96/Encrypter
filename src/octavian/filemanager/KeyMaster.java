@@ -3,18 +3,18 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package filemanager;
+package octavian.filemanager;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.File;
 
-import config.Config;
+import octavian.config.Config;
 import java.io.ObjectOutputStream;
 import java.security.PrivateKey;
 import java.security.PublicKey;
-import statistics.LogGenerator;
+import octavian.statistics.LogGenerator;
 
 
 /**

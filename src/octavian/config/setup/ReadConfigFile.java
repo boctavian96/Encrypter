@@ -3,15 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package algorithms;
+package octavian.config.setup;
 
 /**
  *
  * @author octavian.bodnariu
  */
-public class El_Gamal {
-    
-    
-    
+public class ReadConfigFile {
     
 }

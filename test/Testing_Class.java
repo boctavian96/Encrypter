@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-import filemanager.FileReader;
-import config.setup.ApplicationSetup;
-import statistics.DiskSpace;
-import encrypter.MainApplication;
-import statistics.LogGenerator;
-import config.Config;
+import octavian.filemanager.FileReader;
+import octavian.config.setup.ApplicationSetup;
+import octavian.statistics.DiskSpace;
+import octavian.encrypter.MainApplication;
+import octavian.statistics.LogGenerator;
+import octavian.config.Config;
 
 /**
  *

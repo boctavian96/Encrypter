@@ -3,20 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package algorithms;
+package octavian.algorithms;
 
 /**
- * THIS CLASS IS USED FOR TESTING PURPOSES
+ *
  * @author octavian.bodnariu
  */
-public class Caesar {
+public class Mars {
     
-    /**
-     * Constructor
-     */
-    public Caesar()
-    {
-        
-    }
-
 }

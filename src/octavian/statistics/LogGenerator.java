@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package statistics;
+package octavian.statistics;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -49,7 +49,7 @@ public class LogGenerator {
         try
         {
             StringBuilder sb = new StringBuilder();
-            sb.append(config.Config.LINUX_PATH + "/logs");
+            sb.append(octavian.config.Config.LINUX_PATH + "/logs");
             sb.append(LOG_FILE_NAME);
             sb.append(dtf.format(localDate)); //Numai data
             sb.append(".txt");

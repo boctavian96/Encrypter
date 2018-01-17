@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package statistics;
+package octavian.algorithms;
 
 /**
  *
  * @author octavian.bodnariu
  */
-public class RaportGenerator {
+public class Goldwasser_Micali {
     
 }
