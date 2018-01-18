@@ -1,2 +1,2 @@
 # Encrypter
-A mini-programm for encryption and decryption in public keys in Java
+A mini-programm for encryption and decryption with public keys in Java
