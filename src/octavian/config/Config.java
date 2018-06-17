@@ -18,10 +18,10 @@ public interface Config {
     
     //<editor-fold desc="Algorithms">
     String RSA = "RSA";
-    String CAESAR = "Caesar";
+    String RABIN = "Rabin";
     String ELGAMAL = "ElGamal";
     String GOLDWASSER = "Goldwasser";
-    String MARS = "Mars";
-    String RABIN = "Rabin";
+    String DSA = "DSA";
+    String DIFFIE_HELLMAN = "Diffie-Hellman";
     //</editor-fold>
 }
