@@ -8,7 +8,11 @@ package octavian.encrypter;
 import java.io.File;
 import javax.swing.JFileChooser;
 import octavian.ui.AboutFrame;
+import octavian.ui.DatabaseFrame;
+import octavian.ui.DocumentationFrame;
+import octavian.ui.EmailFrame;
 import octavian.ui.KeyBoardShortcutsFrame;
+import octavian.ui.SettingsFrame;
 
 /**
  *
@@ -493,6 +497,26 @@ public class MainApplication extends javax.swing.JFrame {
         filechoser.setVisible(true);
         directory = filechoser.getSelectedFile();
         pathToFile_TextField.setText(directory.getAbsolutePath());
+    }
+    
+    private void emailSelect(){
+        EmailFrame emailFrame = new EmailFrame();
+        emailFrame.setVisible(true);
+    }
+    
+    private void databaseSelect(){
+        DatabaseFrame dbFrame = new DatabaseFrame();
+        dbFrame.setVisible(true);
+    }
+    
+    private void settingsSelect(){
+        SettingsFrame settingsFrame = new SettingsFrame();
+        settingsFrame.setVisible(true);
+    }
+    
+    private void documentationSelect(){
+        DocumentationFrame docFrame = new DocumentationFrame();
+        docFrame.setVisible(true);
     }
 //</editor-fold>
 

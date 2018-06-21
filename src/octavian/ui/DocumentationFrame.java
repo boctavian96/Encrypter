@@ -9,12 +9,12 @@ package octavian.ui;
  *
  * @author octavian
  */
-public class SettingsFrame extends javax.swing.JFrame {
+public class DocumentationFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form SettingsFrame
+     * Creates new form Documentation
      */
-    public SettingsFrame() {
+    public DocumentationFrame() {
         initComponents();
     }
 
@@ -28,7 +28,7 @@ public class SettingsFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Settings");
+        setTitle("Documentation");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -43,7 +43,6 @@ public class SettingsFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables

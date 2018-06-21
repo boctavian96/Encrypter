@@ -30,6 +30,7 @@ public class KeyBoardShortcutsFrame extends javax.swing.JFrame {
         OkButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Keyboard Shortcuts");
 
         OkButton.setText("Ok");
         OkButton.addActionListener(new java.awt.event.ActionListener() {
