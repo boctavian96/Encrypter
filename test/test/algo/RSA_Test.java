@@ -6,7 +6,7 @@
 package test.algo;
 
 import java.security.PublicKey;
-import octavian.algorithms.RSA;
+import octavian.algorithms.rsa.RSA;
 import octavian.utils.Utils;
 import sun.security.rsa.RSAPublicKeyImpl;
 /**
@@ -14,8 +14,6 @@ import sun.security.rsa.RSAPublicKeyImpl;
  * @author octavian
  */
 public class RSA_Test {
-    
-    
     
     public static void main(String[] args){
         RSA rsa = new RSA();

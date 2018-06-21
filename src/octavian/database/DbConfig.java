@@ -5,14 +5,10 @@
  */
 package octavian.database;
 
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.MongoClient;
-
-
 /**
- * Class used to manage connections to Firebase
+ *
  * @author octavian
  */
-public class DatabaseManager {
-
+public class DbConfig {
+    
 }

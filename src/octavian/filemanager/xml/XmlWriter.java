@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package octavian.database;
-
-import com.mongodb.client.MongoDatabase;
-import com.mongodb.MongoClient;
-
+package octavian.filemanager.xml;
 
 /**
- * Class used to manage connections to Firebase
+ *
  * @author octavian
  */
-public class DatabaseManager {
-
+public class XmlWriter {
+    
 }
