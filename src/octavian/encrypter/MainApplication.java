@@ -7,6 +7,8 @@ package octavian.encrypter;
 
 import java.io.File;
 import javax.swing.JFileChooser;
+import octavian.ui.AboutFrame;
+import octavian.ui.KeyBoardShortcutsFrame;
 
 /**
  *
@@ -41,7 +43,7 @@ public class MainApplication extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         buttonGroup1 = new javax.swing.ButtonGroup();
         AlgorithmsList_ComboBox = new javax.swing.JComboBox<>();
-        jLabel1 = new javax.swing.JLabel();
+        jLabel_SelectAlgorithm = new javax.swing.JLabel();
         encrypt_button = new javax.swing.JButton();
         jProgressBar1 = new javax.swing.JProgressBar();
         jSeparator1 = new javax.swing.JSeparator();
@@ -49,9 +51,8 @@ public class MainApplication extends javax.swing.JFrame {
         generateLogs_CheckBox = new javax.swing.JCheckBox();
         storeKey_CheckBox = new javax.swing.JCheckBox();
         decrypt_button = new javax.swing.JButton();
-        generatePassword_CheckBox = new javax.swing.JCheckBox();
         exit_button = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jLabel_Email = new javax.swing.JLabel();
         sendMail_CheckBox = new javax.swing.JCheckBox();
         email_textField = new javax.swing.JTextField();
         eraseSourceFile_CheckBox = new javax.swing.JCheckBox();
@@ -60,38 +61,31 @@ public class MainApplication extends javax.swing.JFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jScrollPane1 = new javax.swing.JScrollPane();
         console_textArea = new javax.swing.JTextArea();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel_Console = new javax.swing.JLabel();
         jSeparator4 = new javax.swing.JSeparator();
-        signDigitaly_CheckBox = new javax.swing.JCheckBox();
-        file_RadioButton = new javax.swing.JRadioButton();
-        folder_RadioButton = new javax.swing.JRadioButton();
-        jSeparator6 = new javax.swing.JSeparator();
-        jLabel4 = new javax.swing.JLabel();
-        outputFile_textField = new javax.swing.JTextField();
         jSeparator7 = new javax.swing.JSeparator();
         jSeparator8 = new javax.swing.JSeparator();
-        database_button = new javax.swing.JButton();
-        jLabel5 = new javax.swing.JLabel();
-        addExtension_CheckBox = new javax.swing.JCheckBox();
+        about_button = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
-        jMenuItem12 = new javax.swing.JMenuItem();
-        exit_MenuItem = new javax.swing.JMenuItem();
+        BrowseFilesMenuItem = new javax.swing.JMenuItem();
+        ExitMenuItem = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
-        jMenuItem11 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        SettingMenuItem = new javax.swing.JMenuItem();
+        EmailMenuItem = new javax.swing.JMenuItem();
+        DatabaseMenuItem = new javax.swing.JMenuItem();
         jSeparator5 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        ShowLogsMenuItem = new javax.swing.JMenuItem();
+        ShowHistoryMenuItem = new javax.swing.JMenuItem();
         jMenu6 = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        DocumentationMenuItem = new javax.swing.JMenuItem();
+        KeyboardShortcut = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
-        jMenuItem8 = new javax.swing.JMenuItem();
-        jMenuItem10 = new javax.swing.JMenuItem();
+        BugReport = new javax.swing.JMenuItem();
+        AboutMenuItem = new javax.swing.JMenuItem();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -110,7 +104,7 @@ public class MainApplication extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setText("Select Algorithm :");
+        jLabel_SelectAlgorithm.setText("Select Algorithm :");
 
         encrypt_button.setText("Encrypt");
         encrypt_button.addActionListener(new java.awt.event.ActionListener() {
@@ -128,8 +122,11 @@ public class MainApplication extends javax.swing.JFrame {
         storeKey_CheckBox.setText("Store key in Database");
 
         decrypt_button.setText("Decrypt");
-
-        generatePassword_CheckBox.setText("Generate Password");
+        decrypt_button.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                decrypt_buttonActionPerformed(evt);
+            }
+        });
 
         exit_button.setText("Exit");
         exit_button.addActionListener(new java.awt.event.ActionListener() {
@@ -138,17 +135,13 @@ public class MainApplication extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Email : ");
+        jLabel_Email.setText("Email : ");
 
         sendMail_CheckBox.setText("Send encrypted file ");
 
-        email_textField.setText("someone@mail.com");
-
         eraseSourceFile_CheckBox.setText("Erase Source File");
 
-        pathToFile_TextField.setText("Path to file");
-
-        selectFile_button.setText("Select File");
+        selectFile_button.setText("Browse");
         selectFile_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 selectFile_buttonActionPerformed(evt);
@@ -163,46 +156,36 @@ public class MainApplication extends javax.swing.JFrame {
         console_textArea.setText("[INFO]Hi ! I am your text");
         jScrollPane1.setViewportView(console_textArea);
 
-        jLabel2.setText("Console :");
+        jLabel_Console.setText("Console");
 
-        signDigitaly_CheckBox.setText("Sign Digitaly");
-
-        file_RadioButton.setText("File");
-        file_RadioButton.addActionListener(new java.awt.event.ActionListener() {
+        about_button.setText("About");
+        about_button.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                file_RadioButtonActionPerformed(evt);
+                about_buttonActionPerformed(evt);
             }
         });
 
-        folder_RadioButton.setText("Folder");
-        folder_RadioButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                folder_RadioButtonActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setText("Output File : ");
-
-        database_button.setText("Database");
-
-        jLabel5.setText("Encrypt :");
-
-        addExtension_CheckBox.setText("Add \".ss\" to crypted files");
+        jLabel1.setText("Note : Send only the encrypted messages.");
 
         jMenu3.setText("File");
 
-        jMenuItem12.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem12.setText("Select File");
-        jMenu3.add(jMenuItem12);
-
-        exit_MenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
-        exit_MenuItem.setText("Exit");
-        exit_MenuItem.addActionListener(new java.awt.event.ActionListener() {
+        BrowseFilesMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        BrowseFilesMenuItem.setText("Browse Files");
+        BrowseFilesMenuItem.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                exit_MenuItemActionPerformed(evt);
+                BrowseFilesMenuItemActionPerformed(evt);
             }
         });
-        jMenu3.add(exit_MenuItem);
+        jMenu3.add(BrowseFilesMenuItem);
+
+        ExitMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
+        ExitMenuItem.setText("Exit");
+        ExitMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ExitMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu3.add(ExitMenuItem);
 
         jMenuBar2.add(jMenu3);
 
@@ -215,41 +198,51 @@ public class MainApplication extends javax.swing.JFrame {
 
         jMenu5.setText("Profile");
 
-        jMenuItem11.setText("Settings");
-        jMenu5.add(jMenuItem11);
+        SettingMenuItem.setText("Settings");
+        jMenu5.add(SettingMenuItem);
 
-        jMenuItem2.setText("Email");
-        jMenu5.add(jMenuItem2);
+        EmailMenuItem.setText("Email");
+        jMenu5.add(EmailMenuItem);
 
-        jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem3.setText("Database");
-        jMenu5.add(jMenuItem3);
+        DatabaseMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        DatabaseMenuItem.setText("Database");
+        jMenu5.add(DatabaseMenuItem);
         jMenu5.add(jSeparator5);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem4.setText("Show Logs");
-        jMenu5.add(jMenuItem4);
+        ShowLogsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
+        ShowLogsMenuItem.setText("Show Logs");
+        jMenu5.add(ShowLogsMenuItem);
 
-        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
-        jMenuItem5.setText("Show History");
-        jMenu5.add(jMenuItem5);
+        ShowHistoryMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
+        ShowHistoryMenuItem.setText("Show History");
+        jMenu5.add(ShowHistoryMenuItem);
 
         jMenuBar2.add(jMenu5);
 
         jMenu6.setText("Help");
 
-        jMenuItem6.setText("Documentation");
-        jMenu6.add(jMenuItem6);
+        DocumentationMenuItem.setText("Documentation");
+        jMenu6.add(DocumentationMenuItem);
 
-        jMenuItem7.setText("Keyboard Shorcuts");
-        jMenu6.add(jMenuItem7);
+        KeyboardShortcut.setText("Keyboard Shorcuts");
+        KeyboardShortcut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                KeyboardShortcutActionPerformed(evt);
+            }
+        });
+        jMenu6.add(KeyboardShortcut);
         jMenu6.add(jSeparator2);
 
-        jMenuItem8.setText("Report a Bug");
-        jMenu6.add(jMenuItem8);
+        BugReport.setText("Report a Bug");
+        jMenu6.add(BugReport);
 
-        jMenuItem10.setText("About");
-        jMenu6.add(jMenuItem10);
+        AboutMenuItem.setText("About");
+        AboutMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AboutMenuItemActionPerformed(evt);
+            }
+        });
+        jMenu6.add(AboutMenuItem);
 
         jMenuBar2.add(jMenu6);
 
@@ -264,16 +257,11 @@ public class MainApplication extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(generatePassword_CheckBox)
                             .addComponent(generateLogs_CheckBox)
                             .addComponent(generatePDF_Report_CheckBox))
                         .addGap(39, 39, 39)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(signDigitaly_CheckBox)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(eraseSourceFile_CheckBox)
-                                .addGap(49, 49, 49)
-                                .addComponent(addExtension_CheckBox))
+                            .addComponent(eraseSourceFile_CheckBox)
                             .addComponent(storeKey_CheckBox))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
@@ -285,45 +273,37 @@ public class MainApplication extends javax.swing.JFrame {
                             .addComponent(jSeparator1)
                             .addComponent(jScrollPane1)
                             .addComponent(jSeparator4)
-                            .addComponent(jSeparator6)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(encrypt_button)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(decrypt_button)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(database_button)
+                                .addComponent(about_button)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(exit_button))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel1)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(AlgorithmsList_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel4)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(outputFile_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 203, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(file_RadioButton)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(folder_RadioButton))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(selectFile_button)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(pathToFile_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel2))
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel3)
+                                        .addComponent(jLabel_SelectAlgorithm)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(AlgorithmsList_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(selectFile_button)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(email_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(sendMail_CheckBox)))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addContainerGap())))
+                                        .addComponent(pathToFile_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, 446, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel_Console))
+                                .addGap(0, 81, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel_Email)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(email_textField, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(sendMail_CheckBox))
+                            .addComponent(jLabel1))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -331,9 +311,7 @@ public class MainApplication extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(AlgorithmsList_ComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel4)
-                    .addComponent(outputFile_textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel_SelectAlgorithm))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pathToFile_TextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -342,37 +320,27 @@ public class MainApplication extends javax.swing.JFrame {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(file_RadioButton)
-                    .addComponent(folder_RadioButton)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator6, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(jLabel_Email)
                     .addComponent(email_textField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(sendMail_CheckBox))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel1)
+                .addGap(19, 19, 19)
                 .addComponent(jSeparator7, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(generatePDF_Report_CheckBox)
-                    .addComponent(eraseSourceFile_CheckBox)
-                    .addComponent(addExtension_CheckBox))
+                    .addComponent(eraseSourceFile_CheckBox))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(generateLogs_CheckBox)
-                    .addComponent(signDigitaly_CheckBox))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(generatePassword_CheckBox)
                     .addComponent(storeKey_CheckBox))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
                 .addComponent(jSeparator4, javax.swing.GroupLayout.PREFERRED_SIZE, 0, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
+                .addComponent(jLabel_Console)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -383,8 +351,8 @@ public class MainApplication extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(encrypt_button)
                     .addComponent(decrypt_button)
-                    .addComponent(database_button)
-                    .addComponent(exit_button))
+                    .addComponent(exit_button)
+                    .addComponent(about_button))
                 .addGap(21, 21, 21))
         );
 
@@ -394,10 +362,6 @@ public class MainApplication extends javax.swing.JFrame {
 ////<editor-fold defaultstate="collapsed" desc="Private Functions">
     private void encrypt_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_encrypt_buttonActionPerformed
         // TODO add your handling code here:
-        if(addExtension_CheckBox.isSelected())
-        {
-            //Adauga extensie la fisierul output
-        }
         
         if(generatePDF_Report_CheckBox.isSelected())
         {
@@ -410,19 +374,9 @@ public class MainApplication extends javax.swing.JFrame {
             //Se recomanda sa nu fie dezactivat
         }
         
-        if(generatePassword_CheckBox.isSelected())
-        {
-            //Genereaza parola ???
-        }
-        
         if(eraseSourceFile_CheckBox.isSelected())
         {
             //Sterge fisierul/folderul de input
-        }
-        
-        if(signDigitaly_CheckBox.isSelected())
-        {
-            //Semneaza digital
         }
         
         if(storeKey_CheckBox.isSelected())
@@ -447,34 +401,38 @@ public class MainApplication extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_exit_buttonActionPerformed
 
-    private void exit_MenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exit_MenuItemActionPerformed
+    private void ExitMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ExitMenuItemActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_exit_MenuItemActionPerformed
+    }//GEN-LAST:event_ExitMenuItemActionPerformed
 
-    private void file_RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_file_RadioButtonActionPerformed
-        // TODO add your handling code here:
-        file_RadioButton.setSelected(true);
-        folder_RadioButton.setSelected(false);
-    }//GEN-LAST:event_file_RadioButtonActionPerformed
-
-    private void folder_RadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_folder_RadioButtonActionPerformed
-        // TODO add your handling code here:
-        folder_RadioButton.setSelected(true);
-        file_RadioButton.setSelected(false);
-    }//GEN-LAST:event_folder_RadioButtonActionPerformed
-
+    /**
+     * Selectarea fisierului
+     * @param evt 
+     */
     private void selectFile_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selectFile_buttonActionPerformed
-        // TODO add your handling code here:
-        File directory;
-        filechoser = new JFileChooser();
-        int returnVal = filechoser.showOpenDialog(jLabel1);
-        filechoser.setVisible(true);
-        directory = filechoser.getCurrentDirectory();
-        pathToFile_TextField.setText(directory.getPath());
-        //System.out.println("Works");
-        
+        selectFileAction();
     }//GEN-LAST:event_selectFile_buttonActionPerformed
+
+    private void KeyboardShortcutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_KeyboardShortcutActionPerformed
+        showKeyboardShortcuts();
+    }//GEN-LAST:event_KeyboardShortcutActionPerformed
+
+    private void about_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_about_buttonActionPerformed
+        showAbout();
+    }//GEN-LAST:event_about_buttonActionPerformed
+
+    private void decrypt_buttonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_decrypt_buttonActionPerformed
+        //decrypt();
+    }//GEN-LAST:event_decrypt_buttonActionPerformed
+
+    private void BrowseFilesMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BrowseFilesMenuItemActionPerformed
+       selectFileAction();
+    }//GEN-LAST:event_BrowseFilesMenuItemActionPerformed
+
+    private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
+        showAbout();
+    }//GEN-LAST:event_AboutMenuItemActionPerformed
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="Main">
@@ -494,15 +452,11 @@ public class MainApplication extends javax.swing.JFrame {
                     break;
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MainApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MainApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MainApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (ClassNotFoundException | InstantiationException | IllegalAccessException | javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(MainApplication.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+       //</editor-fold>
+       
         //</editor-fold>
 
         /* Create and display the form */
@@ -510,31 +464,66 @@ public class MainApplication extends javax.swing.JFrame {
             new MainApplication().setVisible(true);
         });
     }
+    
+    /**
+     * Exiting the app
+     */
+    private void exit(){
+        System.exit(0);
+    }
+    
+    /**
+     * Shows the about frame
+     */
+    private void showAbout(){
+        AboutFrame aboutFrame = new AboutFrame();
+        aboutFrame.setVisible(true);
+    }
+    
+    private void showKeyboardShortcuts(){
+        KeyBoardShortcutsFrame kbsf = new KeyBoardShortcutsFrame();
+        kbsf.setVisible(true);
+    }
+    
+    private void selectFileAction(){
+        File directory;
+        filechoser = new JFileChooser();
+        int returnVal;
+        returnVal = filechoser.showOpenDialog(jLabel_SelectAlgorithm);
+        filechoser.setVisible(true);
+        directory = filechoser.getSelectedFile();
+        pathToFile_TextField.setText(directory.getAbsolutePath());
+    }
 //</editor-fold>
 
 ////<editor-fold defaultstate="collapsed" desc="Variables">
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenuItem AboutMenuItem;
     private javax.swing.JComboBox<String> AlgorithmsList_ComboBox;
-    private javax.swing.JCheckBox addExtension_CheckBox;
+    private javax.swing.JMenuItem BrowseFilesMenuItem;
+    private javax.swing.JMenuItem BugReport;
+    private javax.swing.JMenuItem DatabaseMenuItem;
+    private javax.swing.JMenuItem DocumentationMenuItem;
+    private javax.swing.JMenuItem EmailMenuItem;
+    private javax.swing.JMenuItem ExitMenuItem;
+    private javax.swing.JMenuItem KeyboardShortcut;
+    private javax.swing.JMenuItem SettingMenuItem;
+    private javax.swing.JMenuItem ShowHistoryMenuItem;
+    private javax.swing.JMenuItem ShowLogsMenuItem;
+    private javax.swing.JButton about_button;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JTextArea console_textArea;
-    private javax.swing.JButton database_button;
     private javax.swing.JButton decrypt_button;
     private javax.swing.JTextField email_textField;
     private javax.swing.JButton encrypt_button;
     private javax.swing.JCheckBox eraseSourceFile_CheckBox;
-    private javax.swing.JMenuItem exit_MenuItem;
     private javax.swing.JButton exit_button;
-    private javax.swing.JRadioButton file_RadioButton;
-    private javax.swing.JRadioButton folder_RadioButton;
     private javax.swing.JCheckBox generateLogs_CheckBox;
     private javax.swing.JCheckBox generatePDF_Report_CheckBox;
-    private javax.swing.JCheckBox generatePassword_CheckBox;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel_Console;
+    private javax.swing.JLabel jLabel_Email;
+    private javax.swing.JLabel jLabel_SelectAlgorithm;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
@@ -544,16 +533,6 @@ public class MainApplication extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem10;
-    private javax.swing.JMenuItem jMenuItem11;
-    private javax.swing.JMenuItem jMenuItem12;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
-    private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JProgressBar jProgressBar1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
@@ -561,14 +540,11 @@ public class MainApplication extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JSeparator jSeparator4;
     private javax.swing.JPopupMenu.Separator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JTextField outputFile_textField;
     private javax.swing.JTextField pathToFile_TextField;
     private javax.swing.JButton selectFile_button;
     private javax.swing.JCheckBox sendMail_CheckBox;
-    private javax.swing.JCheckBox signDigitaly_CheckBox;
     private javax.swing.JCheckBox storeKey_CheckBox;
     // End of variables declaration//GEN-END:variables
 //</editor-fold>

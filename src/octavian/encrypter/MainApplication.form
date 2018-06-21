@@ -29,15 +29,18 @@
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem12">
+            <MenuItem class="javax.swing.JMenuItem" name="BrowseFilesMenuItem">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Shift+Ctrl+F"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Select File"/>
+                <Property name="text" type="java.lang.String" value="Browse Files"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BrowseFilesMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="exit_MenuItem">
+            <MenuItem class="javax.swing.JMenuItem" name="ExitMenuItem">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+Q"/>
@@ -45,7 +48,7 @@
                 <Property name="text" type="java.lang.String" value="Exit"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exit_MenuItemActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ExitMenuItemActionPerformed"/>
               </Events>
             </MenuItem>
           </SubComponents>
@@ -67,17 +70,17 @@
             <Property name="text" type="java.lang.String" value="Profile"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem11">
+            <MenuItem class="javax.swing.JMenuItem" name="SettingMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Settings"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+            <MenuItem class="javax.swing.JMenuItem" name="EmailMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Email"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+            <MenuItem class="javax.swing.JMenuItem" name="DatabaseMenuItem">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Shift+Ctrl+D"/>
@@ -87,7 +90,7 @@
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator5">
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="ShowLogsMenuItem">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+Alt+E"/>
@@ -95,7 +98,7 @@
                 <Property name="text" type="java.lang.String" value="Show Logs"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="ShowHistoryMenuItem">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+H"/>
@@ -110,27 +113,33 @@
             <Property name="text" type="java.lang.String" value="Help"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+            <MenuItem class="javax.swing.JMenuItem" name="DocumentationMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Documentation"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+            <MenuItem class="javax.swing.JMenuItem" name="KeyboardShortcut">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Keyboard Shorcuts"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="KeyboardShortcutActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator2">
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem8">
+            <MenuItem class="javax.swing.JMenuItem" name="BugReport">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Report a Bug"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem10">
+            <MenuItem class="javax.swing.JMenuItem" name="AboutMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="About"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AboutMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -167,21 +176,15 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="generatePassword_CheckBox" min="-2" max="-2" attributes="0"/>
                           <Component id="generateLogs_CheckBox" min="-2" max="-2" attributes="0"/>
                           <Component id="generatePDF_Report_CheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="signDigitaly_CheckBox" min="-2" max="-2" attributes="0"/>
-                          <Group type="102" attributes="0">
-                              <Component id="eraseSourceFile_CheckBox" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
-                              <Component id="addExtension_CheckBox" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="eraseSourceFile_CheckBox" min="-2" max="-2" attributes="0"/>
                           <Component id="storeKey_CheckBox" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="215" max="32767" attributes="0"/>
+                      <EmptySpace min="428" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -192,54 +195,46 @@
                           <Component id="jSeparator1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
                           <Component id="jSeparator4" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jSeparator6" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="encrypt_button" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="decrypt_button" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="database_button" min="-2" max="-2" attributes="0"/>
+                              <Component id="about_button" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="32767" attributes="0"/>
                               <Component id="exit_button" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="AlgorithmsList_ComboBox" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="outputFile_textField" min="-2" pref="203" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="file_RadioButton" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="folder_RadioButton" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="selectFile_button" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="pathToFile_TextField" min="-2" pref="446" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="jLabel_SelectAlgorithm" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="AlgorithmsList_ComboBox" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Component id="selectFile_button" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="email_textField" min="-2" pref="136" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="sendMail_CheckBox" min="-2" max="-2" attributes="0"/>
+                                      <Component id="pathToFile_TextField" min="-2" pref="446" max="-2" attributes="0"/>
                                   </Group>
+                                  <Component id="jLabel_Console" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <EmptySpace min="0" pref="81" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="jLabel_Email" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="email_textField" min="-2" pref="136" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Component id="sendMail_CheckBox" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -251,9 +246,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="AlgorithmsList_ComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="outputFile_textField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_SelectAlgorithm" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -264,42 +257,30 @@
               <Component id="jSeparator3" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="file_RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="folder_RadioButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jSeparator6" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel_Email" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="email_textField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="sendMail_CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
+              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="jSeparator7" min="-2" pref="10" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="generatePDF_Report_CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="eraseSourceFile_CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="addExtension_CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="generateLogs_CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="signDigitaly_CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="generatePassword_CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="storeKey_CheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" max="-2" attributes="0"/>
               <Component id="jSeparator8" min="-2" pref="10" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="22" max="32767" attributes="0"/>
               <Component id="jSeparator4" min="-2" pref="0" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <Component id="jLabel_Console" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="260" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -310,8 +291,8 @@
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="encrypt_button" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="decrypt_button" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="database_button" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="exit_button" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="about_button" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
           </Group>
@@ -339,7 +320,7 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="jLabel_SelectAlgorithm">
       <Properties>
         <Property name="text" type="java.lang.String" value="Select Algorithm :"/>
       </Properties>
@@ -380,11 +361,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Decrypt"/>
       </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="generatePassword_CheckBox">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Generate Password"/>
-      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="decrypt_buttonActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="exit_button">
       <Properties>
@@ -394,7 +373,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exit_buttonActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JLabel" name="jLabel_Email">
       <Properties>
         <Property name="text" type="java.lang.String" value="Email : "/>
       </Properties>
@@ -405,9 +384,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="email_textField">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="someone@mail.com"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JCheckBox" name="eraseSourceFile_CheckBox">
       <Properties>
@@ -415,13 +391,10 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="pathToFile_TextField">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Path to file"/>
-      </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="selectFile_button">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Select File"/>
+        <Property name="text" type="java.lang.String" value="Browse"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="selectFile_buttonActionPerformed"/>
@@ -452,60 +425,28 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JLabel" name="jLabel_Console">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Console :"/>
+        <Property name="text" type="java.lang.String" value="Console"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator4">
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="signDigitaly_CheckBox">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Sign Digitaly"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="file_RadioButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="File"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="file_RadioButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JRadioButton" name="folder_RadioButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Folder"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="folder_RadioButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JSeparator" name="jSeparator6">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Output File : "/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="outputFile_textField">
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator7">
     </Component>
     <Component class="javax.swing.JSeparator" name="jSeparator8">
     </Component>
-    <Component class="javax.swing.JButton" name="database_button">
+    <Component class="javax.swing.JButton" name="about_button">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Database"/>
+        <Property name="text" type="java.lang.String" value="About"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="about_buttonActionPerformed"/>
+      </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Encrypt :"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JCheckBox" name="addExtension_CheckBox">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Add &quot;.ss&quot; to crypted files"/>
+        <Property name="text" type="java.lang.String" value="Note : Send only the encrypted messages."/>
       </Properties>
     </Component>
   </SubComponents>

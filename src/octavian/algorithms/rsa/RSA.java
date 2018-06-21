@@ -22,9 +22,9 @@ import java.util.Random;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import octavian.algorithms.Algoritm;
 
 import octavian.statistics.LogGenerator;
+import octavian.algorithms.Algorithm;
 
 //</editor-fold>
 
@@ -32,7 +32,7 @@ import octavian.statistics.LogGenerator;
  * Clasa responsabila pentru Algoritmul RSA
  * @author octavian
  */
-public class RSA extends Algoritm {
+public class RSA implements Algorithm {
     
     public static KeyMaster km;
     private final BigInteger bi1;
@@ -151,6 +151,16 @@ public class RSA extends Algoritm {
         
         result = new String(dec_text);
         return result;
+    }
+
+    @Override
+    public void encrypt() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void decrypt() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

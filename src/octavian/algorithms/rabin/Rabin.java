@@ -3,22 +3,22 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package algoritm.rabin;
+package octavian.algorithms.rabin;
 
-import algoritm.Algoritm;
-import filemanager.FReader;
-import filemanager.FWriter;
+import octavian.filemanager.FReader;
+import octavian.filemanager.FWriter;
 import java.math.BigInteger;
 import java.nio.charset.Charset;
 import java.security.SecureRandom;
 import java.util.Random;
-import utils.Utils;
+import octavian.utils.Utils;
+import octavian.algorithms.Algorithm;
 
 /**
  * 
  * @author octavian
  */
-public class Rabin implements Algoritm{
+public class Rabin implements Algorithm{
     private static final Random RANDOM = new SecureRandom();
     private static final BigInteger DOI = BigInteger.valueOf(2);
     private static final BigInteger TREI = BigInteger.valueOf(3);
@@ -136,7 +136,7 @@ public class Rabin implements Algoritm{
         return p;
     }
 
-    @Override
+ 
     public void encrypt() {
         FReader fr = new FReader(filePath);
         String mesaj = fr.read();
@@ -147,7 +147,6 @@ public class Rabin implements Algoritm{
         fw.write(result.toString());
     }
 
-    @Override
     public void decrypt() {
             String dec = null;
             FReader fr = new FReader(filePath);

@@ -12,6 +12,9 @@ import java.security.PrivateKey;
  *
  * @author octavian.bodnariu
  */
-public abstract class Algoritm {
+public interface Algorithm {
+    
+    public void encrypt();
+    public void decrypt();
    
 }
