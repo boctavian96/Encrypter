@@ -74,11 +74,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Settings"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SettingMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="EmailMenuItem">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Email"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmailMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="DatabaseMenuItem">
               <Properties>
@@ -87,6 +93,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Database"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DatabaseMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JPopupMenu$Separator" name="jSeparator5">
             </MenuItem>
@@ -97,6 +106,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Show Logs"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowLogsMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="ShowHistoryMenuItem">
               <Properties>
@@ -105,6 +117,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Show History"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ShowHistoryMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -117,6 +132,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Documentation"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DocumentationMenuItemActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="KeyboardShortcut">
               <Properties>
@@ -132,6 +150,9 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Report a Bug"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BugReportActionPerformed"/>
+              </Events>
             </MenuItem>
             <MenuItem class="javax.swing.JMenuItem" name="AboutMenuItem">
               <Properties>

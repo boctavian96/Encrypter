@@ -203,22 +203,47 @@ public class MainApplication extends javax.swing.JFrame {
         jMenu5.setText("Profile");
 
         SettingMenuItem.setText("Settings");
+        SettingMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SettingMenuItemActionPerformed(evt);
+            }
+        });
         jMenu5.add(SettingMenuItem);
 
         EmailMenuItem.setText("Email");
+        EmailMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmailMenuItemActionPerformed(evt);
+            }
+        });
         jMenu5.add(EmailMenuItem);
 
         DatabaseMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_D, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         DatabaseMenuItem.setText("Database");
+        DatabaseMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DatabaseMenuItemActionPerformed(evt);
+            }
+        });
         jMenu5.add(DatabaseMenuItem);
         jMenu5.add(jSeparator5);
 
         ShowLogsMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.ALT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         ShowLogsMenuItem.setText("Show Logs");
+        ShowLogsMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowLogsMenuItemActionPerformed(evt);
+            }
+        });
         jMenu5.add(ShowLogsMenuItem);
 
         ShowHistoryMenuItem.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H, java.awt.event.InputEvent.CTRL_MASK));
         ShowHistoryMenuItem.setText("Show History");
+        ShowHistoryMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ShowHistoryMenuItemActionPerformed(evt);
+            }
+        });
         jMenu5.add(ShowHistoryMenuItem);
 
         jMenuBar2.add(jMenu5);
@@ -226,6 +251,11 @@ public class MainApplication extends javax.swing.JFrame {
         jMenu6.setText("Help");
 
         DocumentationMenuItem.setText("Documentation");
+        DocumentationMenuItem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DocumentationMenuItemActionPerformed(evt);
+            }
+        });
         jMenu6.add(DocumentationMenuItem);
 
         KeyboardShortcut.setText("Keyboard Shorcuts");
@@ -238,6 +268,11 @@ public class MainApplication extends javax.swing.JFrame {
         jMenu6.add(jSeparator2);
 
         BugReport.setText("Report a Bug");
+        BugReport.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BugReportActionPerformed(evt);
+            }
+        });
         jMenu6.add(BugReport);
 
         AboutMenuItem.setText("About");
@@ -437,6 +472,34 @@ public class MainApplication extends javax.swing.JFrame {
     private void AboutMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AboutMenuItemActionPerformed
         showAbout();
     }//GEN-LAST:event_AboutMenuItemActionPerformed
+
+    private void SettingMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SettingMenuItemActionPerformed
+        settingsSelect();
+    }//GEN-LAST:event_SettingMenuItemActionPerformed
+
+    private void EmailMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailMenuItemActionPerformed
+        emailSelect();
+    }//GEN-LAST:event_EmailMenuItemActionPerformed
+
+    private void DatabaseMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DatabaseMenuItemActionPerformed
+        databaseSelect();
+    }//GEN-LAST:event_DatabaseMenuItemActionPerformed
+
+    private void ShowLogsMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowLogsMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ShowLogsMenuItemActionPerformed
+
+    private void ShowHistoryMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ShowHistoryMenuItemActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ShowHistoryMenuItemActionPerformed
+
+    private void DocumentationMenuItemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentationMenuItemActionPerformed
+        documentationSelect();
+    }//GEN-LAST:event_DocumentationMenuItemActionPerformed
+
+    private void BugReportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BugReportActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BugReportActionPerformed
 //</editor-fold>
 
 //<editor-fold defaultstate="collapsed" desc="Main">
