@@ -50,7 +50,7 @@ public class RSA implements Algorithm{
         return cleartext;
     }
     
-    @Override
+    
     public void encrypt(byte[] clearText){
         byte[] cryptoText = codare(clearText);
         System.out.println("Text criptat : " + new String(cryptoText));
@@ -61,6 +61,7 @@ public class RSA implements Algorithm{
         //Scrie textul criptat in fisier
     }
     
+    @Override
     public void encrypt(){
         FReader fr = new FReader(filePath);
         byte[] input = fr.readBytes();
@@ -75,7 +76,7 @@ public class RSA implements Algorithm{
         //Scrie textul criptat in fisier
     }
     
-    @Override 
+    
     public void decrypt(byte[] cryptoText){
         byte[] textClar = decodare(cryptoText);
         System.out.println("Text decriptat : " + new String(textClar));
@@ -86,7 +87,7 @@ public class RSA implements Algorithm{
         //Scrie textul criptat in fisier
     }
     
-      
+    @Override 
     public void decrypt(){
         byte[] cryptoText;
         byte[] textClar;

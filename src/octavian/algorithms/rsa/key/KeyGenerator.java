@@ -80,8 +80,4 @@ public class KeyGenerator {
         return sk;
     }
     
-    public static void main(String[] args){
-        KeyGenerator kg = new KeyGenerator();
-        kg.execute();
-    }
 }
