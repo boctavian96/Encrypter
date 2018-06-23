@@ -5,28 +5,22 @@
  */
 package test.algo;
 
-import java.security.PublicKey;
-import octavian.algorithms.rsa.OLD_RSA;
-import octavian.utils.Utils;
-import sun.security.rsa.RSAPublicKeyImpl;
+import octavian.algorithms.rsa.RSA;
+import octavian.algorithms.rsa.key.KeyGenerator;
+import octavian.algorithms.rsa.key.RsaKey;
+
 /**
  *
  * @author octavian
  */
 public class RSA_Test {
-    
     public static void main(String[] args){
-        OLD_RSA rsa = new OLD_RSA();
-        String message = "Ana are mere si pere";
-        
-        byte[] e = rsa.encrypt(message.getBytes());
-        byte[] d = rsa.decrypt(e);
-        
-        System.out.println("Test string : " + message);
-        System.out.println("Byte string : " + message.getBytes());
-        System.out.println("Encrypted text : " + Utils.bytesToString(e));
-        System.out.println("Decrypted text : " + new String(d));
-        
+        KeyGenerator keygen = new KeyGenerator();
+        keygen.execute();
+        RsaKey sk = keygen.getSk();
+        RsaKey pk = keygen.getPk();
+        RSA rsaalgo = new RSA(sk, pk, "/home/octavian/NetBeansProjects/Encrypter/rsa_dummy.txt");
+        rsaalgo.encrypt();
+        rsaalgo.decrypt();
     }
-
 }

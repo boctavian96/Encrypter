@@ -36,10 +36,9 @@ public class Rabin implements Algorithm{
     }
     
     /**
-     * Encrypt a value with the public key
-     * @param m the value to codare
-     * @param N the public key, N
-     * @return c, the encrypted value
+     * Criptare
+     * @param cryptoText
+     * @return 
      */
     public BigInteger codare(BigInteger cryptoText) {
         return cryptoText.modPow(RabinConfig.DOI, new BigInteger(rk.getN()));
@@ -80,7 +79,7 @@ public class Rabin implements Algorithm{
         BigInteger result;
         FReader fr = new FReader(filePath);
         String mesaj = fr.read();
-        FWriter fw = new FWriter(Utils.getFilenameWithoutExtension(filePath) + "_crpt.txt");
+        FWriter fw = new FWriter(Utils.getFilenameWithoutExtension(filePath) + "_enc.txt");
         BigInteger m = new BigInteger(mesaj.getBytes(Charset.forName("ascii")));
         
         result = codare(m);
@@ -90,7 +89,7 @@ public class Rabin implements Algorithm{
     @Override
     public void decrypt() {
             String dec = null;
-            FReader fr = new FReader(filePath);
+            FReader fr = new FReader(Utils.getFilenameWithoutExtension(filePath) + "_enc.txt");
             FWriter fw = new FWriter(Utils.getFilenameWithoutExtension(filePath) + "_dec.txt");
             BigInteger result = new BigInteger(fr.read());
             BigInteger[] m2 = RabinOld.decodare(result, new BigInteger(rk.getP()), new BigInteger(rk.getQ()));
