@@ -57,9 +57,22 @@ public class FWriter {
               try{
                     out = new FileOutputStream(filename);
                     out.write(content);
+                    out.close();
                 }catch(IOException e){
                     e.printStackTrace();
+
                 }
+        }
+        
+        public void writeNumbers(byte[] numbers){
+            StringBuilder result = new StringBuilder();
+            
+            for(byte i : numbers){
+                result.append(i);
+                result.append(' ');
+            }
+            
+            write(result.toString());
         }
 
 }

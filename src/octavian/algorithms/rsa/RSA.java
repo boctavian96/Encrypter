@@ -5,162 +5,99 @@
  */
 package octavian.algorithms.rsa;
 
-//<editor-fold desc="Imports">
-import java.security.KeyPair;
-import java.security.KeyPairGenerator;
-import java.security.NoSuchAlgorithmException;
-import java.security.PrivateKey;
-import java.security.PublicKey;
-
-import javax.crypto.Cipher;
-
-import octavian.config.Config;
-import octavian.filemanager.KeyMaster;
 import java.math.BigInteger;
-import java.security.InvalidKeyException;
-import java.util.Random;
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
-
-import octavian.statistics.LogGenerator;
 import octavian.algorithms.Algorithm;
-
-//</editor-fold>
+import octavian.algorithms.rsa.key.RsaKey;
+import octavian.filemanager.FReader;
+import octavian.filemanager.FWriter;
+import octavian.utils.Utils;
 
 /**
- * Clasa responsabila pentru Algoritmul RSA
+ *
  * @author octavian
  */
-public class RSA implements Algorithm {
+public class RSA implements Algorithm{
     
-    public static KeyMaster km;
-    private final BigInteger bi1;
-    private final BigInteger bi2;
-    private final BigInteger bi3;
-    private BigInteger pi;
-    private BigInteger a;
-    private BigInteger b;
-    private Random random;
-    
-    private static final int BIT_LENGTH = 1024;
-    public static final String PRIVATE_KEY_FILE = "/home/octavian/Program Files/Encrypter/keys/private.txt";
-    public static final String PUBLIC_KEY_FILE = "/home/octavian/Program Files/Encrypter/keys/public.txt";
-    
-    
-    public RSA(){
-        random = new Random();
-        bi1 = BigInteger.probablePrime(BIT_LENGTH, random);
-        bi2 = BigInteger.probablePrime(BIT_LENGTH, random);
-        bi3 = bi1.multiply(bi2);
-        
-        pi = bi1.subtract(BigInteger.ONE).multiply(bi2.subtract(BigInteger.ONE));
-        a = BigInteger.probablePrime(BIT_LENGTH / 2, random);
-        
-        while(pi.gcd(a).compareTo(BigInteger.ONE) > 0 && a.compareTo(pi) < 0){
-            a.add(BigInteger.ONE);
-        }
-        b = a.modInverse(pi);
-    }
-    
-    public RSA(BigInteger i, BigInteger j, BigInteger k){
-            this.bi1 = i;
-            this.bi2 = j;
-            this.bi3 = k;
-    }
-    
-    public static void generateKey()
-    {
-        try
-        {
-            /**
-             * Key generator for RSA
-             */
-            final KeyPairGenerator keyGen = KeyPairGenerator.getInstance(Config.RSA);
-            keyGen.initialize(1024);
-            
-            //Create files and store them in prvK and pubK
-            final KeyPair key = keyGen.genKeyPair();
-            km = new KeyMaster(PRIVATE_KEY_FILE, PUBLIC_KEY_FILE);
-            km.storeKeys(key.getPublic(), key.getPrivate());
- 
-        }
-        catch(NoSuchAlgorithmException e)
-        {
-            LogGenerator l = LogGenerator.getInstance();
-            l.writeLog('e', e.getMessage());
-        }
-    }
-
-    public byte[] encrypt(byte[] message){
-        return (new BigInteger(message)).modPow(a, bi3).toByteArray();
-    }
-    
-    public byte[] decrypt(byte[] message){
-        return (new BigInteger(message)).modPow(b, bi3).toByteArray();
-    }
+    private final String filePath;
+    private final RsaKey sk;
+    private final RsaKey pk;
     
     /**
-     * Encrypt a text using RSA
-     * @param text Text to be encrypted
-     * @param key Public key
-     * @return Encrypted text
+     * Constructor
+     * @param sk 
      */
-    public byte[] encrypt(String text, PublicKey key)
-    {
-        byte[] enc_text = null;
-        try
-        {
-            Cipher c = Cipher.getInstance(Config.RSA);
-            c.init(Cipher.ENCRYPT_MODE, key);
-            enc_text = c.doFinal(text.getBytes());
-        }
-        catch(InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e)
-        {
-            LogGenerator l = LogGenerator.getInstance();
-            l.writeLog('e', e.getMessage());
-        }
-        
-        return enc_text;
+    public RSA(RsaKey sk, RsaKey pk, String filePath){
+        this.sk = sk;
+        this.pk = pk;
+        this.filePath = filePath;
     }
     
-    /**
-     * Function to decrypt RSA encrypted text
-     * @param text Text to be decrypted
-     * @param key Private key
-     * @return Decrypted text
-     */
-    public String decrypt(byte[] text, PrivateKey key)
-    {
-        String result;
-        byte[] dec_text = null;
+    private byte[] codare(byte[] text){
+        byte[] cryptotext;
+        BigInteger value1 = new BigInteger(pk.getKeyValue1());
+        BigInteger value2 = new BigInteger(pk.getKeyValue2());
+        cryptotext = (new BigInteger(text)).modPow(value2, value1).toByteArray();
         
-        try
-        {
-            Cipher c = Cipher.getInstance(Config.RSA);
-            
-            //Decrypt
-            c.init(Cipher.DECRYPT_MODE, key);
-            dec_text = c.doFinal(text);
-        }
-        catch(InvalidKeyException | NoSuchAlgorithmException | BadPaddingException | IllegalBlockSizeException | NoSuchPaddingException e)
-        {
-            LogGenerator l = LogGenerator.getInstance();
-            l.writeLog('e', e.getMessage());
-        }
+        return cryptotext;
+    }
+    
+    private byte[] decodare(byte[] cryptotext){
+        byte[] cleartext;
+        BigInteger value1 = new BigInteger(sk.getKeyValue1());
+        BigInteger value2 = new BigInteger(sk.getKeyValue2());
+        cleartext = (new BigInteger(cryptotext)).modPow(value2, value1).toByteArray();
         
-        result = new String(dec_text);
-        return result;
+        return cleartext;
     }
-
+    
     @Override
-    public void encrypt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void encrypt(byte[] clearText){
+        byte[] cryptoText = codare(clearText);
+        System.out.println("Text criptat : " + new String(cryptoText));
+        
+        FWriter fw = new FWriter(filePath);
+        fw.write(cryptoText);
+        
+        //Scrie textul criptat in fisier
     }
-
-    @Override
-    public void decrypt() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public void encrypt(){
+        FReader fr = new FReader(filePath);
+        byte[] input = fr.readBytes();
+        byte[] cryptoText = codare(input);
+        
+        //System.out.println("Am citit : " + new String(input));
+        System.out.println("Am codat : " + new String (cryptoText));
+        
+        FWriter fw = new FWriter(Utils.getFilenameWithoutExtension(filePath) + "_enc.txt");
+        fw.writeNumbers(cryptoText);
+        //fw.write("Ana are mere");
+        //Scrie textul criptat in fisier
     }
-
+    
+    @Override 
+    public void decrypt(byte[] cryptoText){
+        byte[] textClar = decodare(cryptoText);
+        System.out.println("Text decriptat : " + new String(textClar));
+        
+        FWriter fw = new FWriter(filePath);
+        fw.write(new String(textClar));
+        
+        //Scrie textul criptat in fisier
+    }
+    
+      
+    public void decrypt(){
+        byte[] cryptoText;
+        byte[] textClar;
+        FReader fr = new FReader(Utils.getFilenameWithoutExtension(filePath) + "_enc.txt");
+        cryptoText = fr.readNumbers();
+        System.out.println("Am citit : " + new String(cryptoText));
+        textClar = decodare(cryptoText);
+        System.out.println("Voi scrie : " + textClar.toString());
+        FWriter fw = new FWriter(Utils.getFilenameWithoutExtension(filePath) + "_dec.txt");
+        fw.write(textClar);        
+        //Scrie textul criptat in fisier
+    }
+    
 }

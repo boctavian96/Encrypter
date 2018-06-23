@@ -6,7 +6,7 @@
 package test.algo;
 
 import java.security.PublicKey;
-import octavian.algorithms.rsa.RSA;
+import octavian.algorithms.rsa.OLD_RSA;
 import octavian.utils.Utils;
 import sun.security.rsa.RSAPublicKeyImpl;
 /**
@@ -16,7 +16,7 @@ import sun.security.rsa.RSAPublicKeyImpl;
 public class RSA_Test {
     
     public static void main(String[] args){
-        RSA rsa = new RSA();
+        OLD_RSA rsa = new OLD_RSA();
         String message = "Ana are mere si pere";
         
         byte[] e = rsa.encrypt(message.getBytes());

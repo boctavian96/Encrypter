@@ -10,6 +10,9 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 /**
  *
@@ -21,6 +24,17 @@ public class FReader{
         
         public FReader(String filename){
             this.filename = filename;
+        }
+        
+        public List<String> readList(){
+            String input = read();
+            List<String> result = new ArrayList<String>();
+            
+            for(int i = 0; i < input.length(); i++){
+                
+            }
+            
+            return result;
         }
 
 	public String read(){
@@ -62,13 +76,19 @@ public class FReader{
         }
         
         public byte[] readBytes(){
-            byte[] fileToByte = null;
-            try{
-            fileToByte = Files.readAllBytes(new File(filename).toPath());
-            }catch(IOException e){
-                e.printStackTrace();
+            String text = read();
+            return text.getBytes();
+        }
+        
+        public byte[] readNumbers(){
+            String readFile = read();
+            String[] resultString = readFile.split("\\s");
+            byte[] resultByte = new byte[resultString.length];
+            
+            for(int i = 0; i < resultString.length; i++){
+                resultByte[i] = Byte.parseByte(resultString[i]);
             }
             
-            return fileToByte;
+            return resultByte;
         }
 }

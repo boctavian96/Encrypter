@@ -14,7 +14,7 @@ import java.security.PrivateKey;
  */
 public interface Algorithm {
     
-    public void encrypt();
-    public void decrypt();
+    public abstract void encrypt(byte[] clearText);
+    public abstract void decrypt(byte[] cryptoText);
    
 }
