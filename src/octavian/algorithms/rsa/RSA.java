@@ -97,7 +97,7 @@ public class RSA implements Algorithm{
         textClar = decodare(cryptoText);
         System.out.println("Voi scrie : " + textClar.toString());
         FWriter fw = new FWriter(Utils.getFilenameWithoutExtension(filePath) + "_dec.txt");
-        fw.write(textClar);        
+        fw.write(new String(textClar));        
         //Scrie textul criptat in fisier
     }
     
