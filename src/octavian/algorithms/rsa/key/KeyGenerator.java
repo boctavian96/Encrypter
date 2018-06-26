@@ -14,7 +14,7 @@ import java.util.Random;
  */
 public class KeyGenerator {
     
-    private static final int BIT_LENGTH = 1024;
+    private static final int BIT_LENGTH = 4096;
     private final BigInteger n; 
     private final BigInteger q;
     

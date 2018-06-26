@@ -65,15 +65,10 @@ public class RSA implements Algorithm{
     public void encrypt(){
         FReader fr = new FReader(filePath);
         byte[] input = fr.readBytes();
-        byte[] cryptoText = codare(input);
-        
-        //System.out.println("Am citit : " + new String(input));
-        System.out.println("Am codat : " + new String (cryptoText));
-        
+        byte[] cryptoText = codare(input);     
         FWriter fw = new FWriter(Utils.getFilenameWithoutExtension(filePath) + "_enc.txt");
         fw.writeNumbers(cryptoText);
-        //fw.write("Ana are mere");
-        //Scrie textul criptat in fisier
+
     }
     
     
@@ -93,9 +88,7 @@ public class RSA implements Algorithm{
         byte[] textClar;
         FReader fr = new FReader(Utils.getFilenameWithoutExtension(filePath) + "_enc.txt");
         cryptoText = fr.readNumbers();
-        System.out.println("Am citit : " + new String(cryptoText));
         textClar = decodare(cryptoText);
-        System.out.println("Voi scrie : " + textClar.toString());
         FWriter fw = new FWriter(Utils.getFilenameWithoutExtension(filePath) + "_dec.txt");
         fw.write(new String(textClar));        
         //Scrie textul criptat in fisier

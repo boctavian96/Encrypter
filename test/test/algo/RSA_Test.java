@@ -19,8 +19,8 @@ public class RSA_Test {
         keygen.execute();
         RsaKey sk = keygen.getSk();
         RsaKey pk = keygen.getPk();
-        RSA rsaalgo = new RSA(sk, pk, "/home/octavian/NetBeansProjects/Encrypter/rsa_dummy.txt");
+        RSA rsaalgo = new RSA(sk, pk, "/home/octavian/NetBeansProjects/Encrypter/teste/RSA/rsa_dummy.txt");
         rsaalgo.encrypt();
-        rsaalgo.decrypt();
+        //rsaalgo.decrypt();
     }
 }
